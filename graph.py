@@ -43,7 +43,7 @@ class RailRoad:
 
 	def possibles(self, dep, stops):
 		dico_paths = {}
-		self.search_paths(self, '', dep, 0, stops, dico_paths)
+		self.search_paths( '', dep, 0, stops, dico_paths)
 		return dico_paths
 
 
