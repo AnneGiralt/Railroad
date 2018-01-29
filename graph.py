@@ -41,16 +41,19 @@ class RailRoad:
 				l+= self.graph[actual_town][next_town]
 		return l
 
-	def possibles(self, dep, length):
+	def possibles(self, dep, stops):
+		dico_paths = {}
+		self.search_paths(self, '', dep, 0, stops, dico_paths)
+		return dico_paths
 
 
-		return list_possible
+	def search_paths(self, path, town, length, stops, dico):
+		if stops == -1: 
+			pass
+		else :
+			new_path = path + town
+			dico.update({new_path: length})
 
+			for key,value in self.graph[town].items():
+				self.search_paths(new_path, key, length + value, stops-1, dico)
 
-
-
-
-
-mon_string ="AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7"
-railroad = RailRoad()
-railroad.build(mon_string)
