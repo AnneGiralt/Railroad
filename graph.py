@@ -41,6 +41,12 @@ class RailRoad:
 				l+= self.graph[actual_town][next_town]
 		return l
 
+	def possibles(self, dep, length):
+
+
+		return list_possible
+
+
 
 
 
@@ -48,15 +54,3 @@ class RailRoad:
 mon_string ="AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7"
 railroad = RailRoad()
 railroad.build(mon_string)
-
-#print(railroad.graph)
-
-print(railroad.distance('A-B-C'))
-print(railroad.distance('A-D'))
-print(railroad.distance('A-D-C'))
-print(railroad.distance('A-E-B-C-D'))
-print(railroad.distance('A-E-D'))
-
-
-
-
