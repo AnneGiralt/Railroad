@@ -35,13 +35,17 @@ class RailroadTest(unittest.TestCase):
 		self.assertEqual(dico_test, {'A': 0, 'AB' : 5, 'AD' : 5, 'AE' : 7})
 
 
-	def test_searchpath_1(self):
+	def test_searchpath_2(self):
 		dico_test = {}
 		self.railroad.search_paths( '', 'A', 0, 2, dico_test)
 		self.assertEqual(dico_test, {'A': 0, 'AB' : 5, 'AD' : 5, 'AE' : 7, 'ABC' : 9, 'AEB' : 10, 'ADE' : 11, 'ADC': 13 })
 
 	def test_possibles(self):
 		self.assertEqual(self.railroad.possibles('A', 2),{'A': 0, 'AB' : 5, 'AD' : 5, 'AE' : 7, 'ABC' : 9, 'AEB' : 10, 'ADE' : 11, 'ADC': 13 } )
+
+
+	def test_depart_arrival(self):
+		self.assertEqual(self.railroad.depart_arrival('C', 'C', 3), {'CEBC': 9, 'CDC': 16, 'C':0})
 
 
 

@@ -57,3 +57,16 @@ class RailRoad:
 			for key,value in self.graph[town].items():
 				self.search_paths(new_path, key, length + value, stops-1, dico)
 
+	def depart_arrival(self, dep, arr, stops):
+		dico = self.possibles(dep, stops)
+		result ={}
+
+		for key, value in dico.items():
+			if key[-1] == arr:
+				result.update({key: value})
+		return result
+
+
+
+
+
