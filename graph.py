@@ -90,4 +90,16 @@ class RailRoad:
 		else:
 			return list_dist[0]
 
+	def nb_chemin_max(self, dep, arr,max_length):
+		dico = self.depart_arrival(dep,arr,10)
+
+		list_dist = list(dico.values())
+		list_max = [nb for nb in list_dist if nb < max_length]
+
+		return len(list_max)
+
+
+
+
+
 

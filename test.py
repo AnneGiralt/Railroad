@@ -68,6 +68,11 @@ class RailroadTest(unittest.TestCase):
 	def test9(self):
 		self.assertEqual(self.railroad.dist_min('C', 'C'),9)
 
+	# Test 10 :
+	def test10(self):
+		self.assertEqual(self.railroad.nb_chemin_max('C', 'C',30)-1,7)
+
+
 
 
 
