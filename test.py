@@ -47,6 +47,9 @@ class RailroadTest(unittest.TestCase):
 	def test_depart_arrival(self):
 		self.assertEqual(self.railroad.depart_arrival('C', 'C', 3), {'CEBC': 9, 'CDC': 16, 'C':0})
 
+	def test_dep_arr_stops(self):
+		self.assertEqual(self.railroad.dep_arr_stops('C', 'C', 3), {'CEBC': 9})
+
 
 
 

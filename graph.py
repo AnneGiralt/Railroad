@@ -68,5 +68,10 @@ class RailRoad:
 
 
 
-
-
+	def dep_arr_stops(self,dep,arr, stops):
+		dico = self.depart_arrival(dep, arr,stops)
+		result = {}
+		for key, value in dico.items():
+			if len(key) == stops +1:
+				result.update({key: value})
+		return result
