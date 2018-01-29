@@ -69,9 +69,25 @@ class RailRoad:
 
 
 	def dep_arr_stops(self,dep,arr, stops):
-		dico = self.depart_arrival(dep, arr,stops)
+		dico = self.depart_arrival(dep,arr,stops)
 		result = {}
 		for key, value in dico.items():
 			if len(key) == stops +1:
 				result.update({key: value})
 		return result
+
+
+	def dist_min(self, dep, arr):
+		dico = self.depart_arrival(dep,arr,10)
+		if dep == arr :
+			dico.pop(dep)
+
+		list_dist = list(dico.values())
+		list_dist.sort()
+		 
+		if list_dist == []:
+			return 'NO SUCH ROUTE'
+		else:
+			return list_dist[0]
+
+

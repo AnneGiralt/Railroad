@@ -48,16 +48,25 @@ class RailroadTest(unittest.TestCase):
 		self.assertEqual(self.railroad.depart_arrival('C', 'C', 3), {'CEBC': 9, 'CDC': 16, 'C':0})
 
 	def test_dep_arr_stops(self):
-		self.assertEqual(self.railroad.dep_arr_stops('A', 'C', 4), {'CEBC': 9})
+		self.assertEqual(self.railroad.dep_arr_stops('C', 'C', 3), {'CEBC': 9})
 
 
+	# Test 6 :
 	def test6(self):
-		# Test 6 :
 		self.assertEqual(len(self.railroad.depart_arrival('C', 'C', 3))-1, 2)
 
-	def test_dep_arr_stops(self):
+	# Test 7 :
+	def test7(self):
 		self.assertEqual(len(self.railroad.dep_arr_stops('A', 'C', 4)),3)
 
+	# Test 8 :
+	def test8(self):
+		self.assertEqual(self.railroad.dist_min('A', 'C'),9)
+
+
+	# Test 9 :
+	def test9(self):
+		self.assertEqual(self.railroad.dist_min('C', 'C'),9)
 
 
 
