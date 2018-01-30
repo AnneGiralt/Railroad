@@ -4,11 +4,34 @@ class RailRoad:
 	def __init__(self):
 		self.graph ={}
 
+	# Method to check if the string of graph have a correct form 
+	def is_valid(self,string_railroad):
+
+		try : 
+			list_edges = string_railroad.split(", ") 
+		except SyntaxError:
+			print('The input graph must be a string')
+			return False
+
+		for elt in list_edges:
+			if not (elt[0:2].isalpha()  and elt[0:2].isupper() and elt[2:].isdigit()):
+				print('The input graph format is invalid. Example of correct string : "AB5, AC56, BD6, CT4" ')
+				return False
+
+		return True
+
+
+
+
 	# Method to initialise self.graph
 	def build(self,string_railroad):
-		list_string_node = string_railroad.split(", ")
-		for e in list_string_node:
-			self.addroute(e)
+
+		if not self.is_valid(string_railroad):
+			print("The graph couldn't be filled")
+		else:
+			list_string_node = string_railroad.split(", ")
+			for e in list_string_node:
+				self.addroute(e)
 
 	# Fill self.graph edge by edge
 	def addroute(self,edge):
