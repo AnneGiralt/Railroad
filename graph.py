@@ -81,9 +81,11 @@ class RailRoad:
 
 	
 	def possibles(self, dep, stops):
-		'''Method who gives all possibles path from the town dep whith maximum stops stops.
+		'''
+			Method who gives all possibles path from the town dep whith maximum stops stops.
 		This methos essentially initialise a dictionary to give it as argument in the recursive method search_path.
-		Carreful the path {dep : 0} is given !'''
+		Carreful the path {dep : 0} is given !
+		'''
 
 
 		dico_paths = {}
@@ -96,7 +98,7 @@ class RailRoad:
 		It take as argument a dictionary, dico, of all path already found, a particular path to prolonguate by the town.
 		A number of stops autorized. '''
 
-		#Initialisation :
+		# Initialisation :
 		if stops == -1: 
 			pass
 		else :
@@ -104,9 +106,9 @@ class RailRoad:
 			new_path = path + town 
 			dico.update({new_path: length})
 
-			#for every accessible town from where I am I call recursively my method with stops-1:
-			for key,value in self.graph[town].items():
-				self.search_paths(new_path, key, length + value, stops-1, dico)
+			# For every accessible town from where I am I call recursively my method with stops-1:
+			for key, value in self.graph[town].items():
+				self.search_paths(new_path, key, length + value, stops - 1, dico)
 
 
 
@@ -115,7 +117,7 @@ class RailRoad:
 		Carreful the path {dep : 0} is given.'''
 
 		dico = self.possibles(dep, stops)
-		result ={}
+		result = {}
 
 		for key, value in dico.items():
 			if key[-1] == arr:
@@ -123,11 +125,11 @@ class RailRoad:
 		return result
 
 	
-	def dep_arr_stops(self,dep,arr, stops):
+	def dep_arr_stops(self, dep, arr, stops):
 		'''Compute all possibles path from a town de to a town arr with an exact number of stops:
 		Carreful the path {dep : 0} is given if dep == arr'''
 
-		dico = self.depart_arrival(dep,arr,stops)
+		dico = self.depart_arrival(dep, arr, stops)
 		result = {}
 		for key, value in dico.items():
 			if len(key) == stops +1:
