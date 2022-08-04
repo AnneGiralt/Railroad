@@ -1,9 +1,12 @@
-# Rail_road
+# Railroad
 
-This is a object oriented project about railway. The railway is a wheighted oriented graph. Every vertex is associated to a town in the railway, and an edge between the towns A and B represents a road from A to B. The associated weight is the length of this road. The railway is given as a string concatenation of differents paths. For example an input railway could be : 'AB4 AC3 BD8'. In this case there is four towns A, B, C and D with three roads A to B, A to C, and B to D, with respective lengths 4,3 and 8.
+This repository is a exercise for beginner in Python. The purpose is to practice oriented object programming, dictionary handling and simple test realization. The subject here is about constructing a virtual railroad network and give some information to a potential customer about traveling such as length of a given traject, all possibles trajects between two cities or the minimal length between two cities.
 
-The fist thing we do is to construct a graph structure from the input string. A graph here is given by a dictionary of dictionary. In the firt dictionary each key is a departure town A and the value is a dictionary. A key of this dictionary associated to the town A is also a town, B. In this case, there exist a road between A and B. The value associated the key B is the length of the path AB.
+A railroad is given as a oriented graph. Vertices represent towns and edges represent a railroad between two town (in an unique way). A railroad is given as a string with the two cities and the length. As an example : 'AB5' is a railroad from the town A to the town B of length 5. A railroad network is given as concatenation of railroad separate by a space and comma. As an example 'AB4, AC3, BD8' is a valid input as railroad network. We suppose that there can't be any loop, and he network can have severals railroad from the same departure and arrival towns, possibly with different lengths.
 
-The firt principal method of the Railroad class calculates the length of a path given as a string as for example 'A-B-C' if it exists. The two next methods give all possible paths between two given towns with a fixed or maximal number of stops. The last method gives all possible routes between two given town with a maximal length.
+The exercise success will be validate by using unittest, checking for a list of questions from a potential passenger.
 
-The are two test files. Testbuild.py check if the convertion of the railway from string to graph is well realised, and test.py tests all methods of the railroad class.
+To run the test :
+```
+python -m unittest test.py
+```
